@@ -1,26 +1,46 @@
 @import "tailwindcss";
 
+/* In Tailwind v4, we define custom theme values right here.
+   This replaces the old tailwind.config.js 'theme.extend' section.
+*/
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Define our custom brand colors */
+  --color-brand-dark: #1c1917;    /* stone-900 */
+  --color-brand-primary: #d97706; /* amber-600 */
+  --color-brand-light: #fafaf9;   /* stone-50 */
+
+  /* Link the font to the Next.js variable */
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Set default base styles 
+*/
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--color-brand-light);
+    color: var(--color-brand-dark);
+    font-family: var(--font-sans);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Scrollbar (Optional but nice) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
 }
