@@ -40,7 +40,7 @@ const ProductModal = ({ product, onClose }) => {
 
         {/* Content Side */}
         <div className="md:w-1/2 p-8 bg-white flex flex-col">
-          <div className="flex justify-between items-start mb-6">
+          <div className="flex justify-between items-start mb-4">
             <div>
               <span className="text-amber-600 font-bold text-xs uppercase tracking-widest">{product.category}</span>
               <h3 className="text-3xl font-bold text-stone-900 mt-1 hidden md:block">{product.title}</h3>
@@ -50,12 +50,12 @@ const ProductModal = ({ product, onClose }) => {
             </button>
           </div>
 
-          <p className="text-stone-600 mb-8 text-lg leading-relaxed">{product.shortDesc}</p>
+          <p className="text-stone-600 mb-4 text-lg leading-relaxed">{product.shortDesc}</p>
 
-          <div className="space-y-6 mb-8">
+          <div className="mb-4">
             <div>
               <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2"><Hammer size={18} className="text-amber-500"/> Brand Support</h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {product.specs.brands.map(b => (
                   <span key={b} className="bg-stone-100 text-stone-600 px-3 py-1 rounded text-sm font-medium border border-stone-200">{b}</span>
                 ))}
@@ -81,11 +81,11 @@ const ProductModal = ({ product, onClose }) => {
 
                 return (
                     <div key={key}>
-                        <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2">
+                        <h4 className="font-bold text-stone-800 flex items-center gap-2">
                             {icon} {label}
                         </h4>
                         {Array.isArray(value) ? (
-                             <ul className="list-disc list-inside text-stone-600 text-sm pl-2 space-y-1">
+                             <ul className="list-disc list-inside text-stone-600 text-sm pl-2 space-y-1 mb-4">
                                 {value.map(v => <li key={v}>{v}</li>)}
                              </ul>
                         ) : (
@@ -100,12 +100,12 @@ const ProductModal = ({ product, onClose }) => {
             <a 
               href="https://wa.me/6281234567890" 
               target="_blank"
-              className="flex-1 bg-brand-primary hover:bg-amber-700 text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors shadow-lg hover:shadow-amber-600/30"
+              className="flex-1 bg-amber-500 hover:bg-amber-700 text-stone-800 hover:text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors shadow-lg hover:shadow-amber-600/30"
             >
               <Phone size={18} />
               Tanya Harga
             </a>
-            <button className="flex-1 border border-stone-200 hover:border-stone-300 hover:bg-stone-50 text-stone-700 py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors">
+            <button className="flex-1 border border-stone-800 hover:border-stone-300 hover:bg-stone-800 text-stone-700 hover:text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors">
               <FileText size={18} />
               Spek Teknis
             </button>

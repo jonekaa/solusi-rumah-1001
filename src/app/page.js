@@ -21,7 +21,7 @@ export default function GroupLanding() {
       </nav>
 
       {/* Hero Portal */}
-      <header className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <header className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         {/* Abstract Background */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -35,10 +35,10 @@ export default function GroupLanding() {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl px-4 mt-16 md:mt-0">
-          <span className="inline-block py-2 px-6 rounded-full border border-stone-200/60 bg-white/40 backdrop-blur-md text-stone-600 text-xs font-bold tracking-[0.2em] uppercase mb-8 shadow-sm">
-            1001 Solusi Rumah
+          <span className="inline-block py-2 px-6 rounded-full border border-stone-950 bg-white/40 backdrop-blur-md text-stone-600 text-sm font-bold tracking-[0.2em] uppercase mb-8 shadow-xl">
+            Build Your Dream
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter text-stone-900 leading-[1.1]">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter text-stone-800 leading-[1.1]">
             Membangun Ekosistem<br />
             <span className="text-transparent bg-clip-text bg-linear-to-r from-amber-600 to-amber-500">Konstruksi Modern</span>
           </h1>
