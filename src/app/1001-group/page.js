@@ -5,7 +5,7 @@ import { ArrowRight, Building2, Globe, ShieldCheck } from 'lucide-react';
 import { GROUP_BUSINESSES } from '@/data';
 
 export const metadata = {
-    title: "1001 Group | Integrated Construction Solutions",
+    title: "1001 Solusi Rumah | Integrated Construction Solutions",
     description: "Induk perusahaan spesialis material konstruksi: Aluminium, Kaca, Maintenance, dan Hunian Mewah.",
 };
 
@@ -36,7 +36,7 @@ export default function GroupLanding() {
 
                 <div className="relative z-10 text-center max-w-4xl px-4 mt-10">
                     <span className="inline-block py-1 px-3 rounded-full border border-amber-600/50 text-amber-500 text-xs font-bold tracking-widest uppercase mb-6 backdrop-blur-sm">
-                        Solusi Rumah
+                        1001 Solusi Rumah
                     </span>
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
                         Membangun Ekosistem<br />

@@ -61,16 +61,39 @@ const ProductModal = ({ product, onClose }) => {
                 ))}
               </div>
             </div>
-            <div>
-              <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2"><ShieldCheck size={18} className="text-amber-500"/> Spesifikasi Kaca</h4>
-               <ul className="list-disc list-inside text-stone-600 text-sm pl-2 space-y-1">
-                 {product.specs.glass.map(g => <li key={g}>{g}</li>)}
-               </ul>
-            </div>
-            <div>
-              <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2"><Ruler size={18} className="text-amber-500"/> Finishing & Warna</h4>
-               <p className="text-sm text-stone-600">{product.specs.finish.join(", ")}</p>
-            </div>
+            {/* Dynamic Specs Rendering */}
+            {Object.entries(product.specs).map(([key, value]) => {
+                if (key === 'brands') return null; // Handled above
+
+                let label = key;
+                let icon = <ShieldCheck size={18} className="text-amber-500"/>;
+
+                // Map keys to labels
+                switch(key) {
+                    case 'glass': label = 'Spesifikasi Kaca'; break;
+                    case 'material': label = 'Material Dasar'; break;
+                    case 'thickness': label = 'Ketebalan'; icon = <Ruler size={18} className="text-amber-500"/>; break;
+                    case 'finish': label = 'Finishing & Warna'; icon = <Ruler size={18} className="text-amber-500"/>; break;
+                    case 'colors': label = 'Pilihan Warna'; icon = <Ruler size={18} className="text-amber-500"/>; break;
+                    case 'warranty': label = 'Garansi'; break;
+                    default: label = key.charAt(0).toUpperCase() + key.slice(1);
+                }
+
+                return (
+                    <div key={key}>
+                        <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2">
+                            {icon} {label}
+                        </h4>
+                        {Array.isArray(value) ? (
+                             <ul className="list-disc list-inside text-stone-600 text-sm pl-2 space-y-1">
+                                {value.map(v => <li key={v}>{v}</li>)}
+                             </ul>
+                        ) : (
+                             <p className="text-sm text-stone-600">{value}</p>
+                        )}
+                    </div>
+                );
+            })}
           </div>
 
           <div className="mt-auto pt-6 border-t border-stone-100 flex gap-4">

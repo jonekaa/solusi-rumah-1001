@@ -5,6 +5,96 @@ export const BUSINESS_NETWORK = [
     { name: "Furniture 1001", type: "Spesialis Rumah Mewah", active: false },
 ];
 
+export const BAJA_PRODUCTS = [
+    {
+        id: 1,
+        title: "Kanal C Baja Ringan",
+        category: "Structural",
+        shortDesc: "Baja ringan profil C75 bermutu tinggi G550 dengan lapisan anti-karat AZ100.",
+        image: "https://images.unsplash.com/photo-1518709766631-a6a7f45921c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        isBestSeller: true,
+        specs: {
+            brands: ["Kencana Truss", "Taso", "Cilegon Steel"],
+            material: ["Galvalum AZ100", "G550 Hi-Ten"],
+            thickness: ["0.75mm", "1.00mm"],
+            warranty: "Garansi Karat 10 Tahun"
+        },
+        usage: "Rangka Atap Rumah, Gudang, Kanopi"
+    },
+    {
+        id: 2,
+        title: "Atap Spandek Pasir",
+        category: "Roofing",
+        shortDesc: "Atap galvalum dengan lapisan pasir untuk peredam suara dan panas.",
+        image: "https://images.unsplash.com/photo-1632759145351-1d592919f522?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        isBestSeller: true,
+        specs: {
+            brands: ["Kencana", "Sakura Paint"],
+            colors: ["Merah Marun", "Hitam", "Coklat", "Hijau"],
+            thickness: ["0.30mm", "0.35mm"],
+            warranty: "Garansi Warna 5 Tahun"
+        },
+        usage: "Atap Rumah Tinggal, Kanopi Carport"
+    },
+    {
+        id: 3,
+        title: "Reng Baja Ringan",
+        category: "Structural",
+        shortDesc: "Profil Reng asimetris untuk dudukan genteng yang presisi.",
+        image: "https://images.unsplash.com/photo-1590059390240-8488e010837d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        isBestSeller: false,
+        specs: {
+            brands: ["Kencana Truss", "Taso"],
+            material: ["Galvalum AZ100"],
+            thickness: ["0.45mm"],
+            warranty: "Standar SNI"
+        },
+        usage: "Dudukan Genteng Metal/Keramik"
+    },
+    {
+        id: 4,
+        title: "Hollow Plafon",
+        category: "Interior",
+        shortDesc: "Rangka plafon gypsum kuat dan presisi 2x4 dan 4x4.",
+        image: "https://images.unsplash.com/photo-1594901502476-c56df3d12d4d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        isBestSeller: false,
+        specs: {
+            brands: ["A Plus", "Kencana"],
+            material: ["Galvanis", "Galvalum"],
+            thickness: ["0.30mm", "0.35mm"],
+            warranty: "-"
+        },
+        usage: "Rangka Plafon Gypsum/PVC"
+    }
+];
+
+export const BAJA_PROJECTS = [
+    {
+        id: 1,
+        title: "Gudang Logistik Sidoarjo",
+        location: "Kawasan Industri Rungkut",
+        description: "Pemasangan konstruksi atap bentang lebar 30 meter tanpa tiang tengah menggunakan Kencana Truss C75.100 double.",
+        image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        completionDate: "Oktober 2024"
+    },
+    {
+        id: 2,
+        title: "Cluster Perumahan CitraLand",
+        location: "Surabaya Barat",
+        description: "Supply dan instalasi rangka atap baja ringan untuk 50 unit rumah tipe 72/120 dengan genteng keramik berat.",
+        image: "https://images.unsplash.com/photo-1628624747186-a941525f3824?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        completionDate: "Desember 2024"
+    },
+    {
+        id: 3,
+        title: "Kanopi Industrial Cafe",
+        location: "Malang Kota",
+        description: "Kanopi estetis exposed material dengan atap spandek transparan dan finishing cat hitam doff.",
+        image: "https://images.unsplash.com/photo-1583847661441-89724e8a8b1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        completionDate: "Januari 2025"
+    }
+];
+
 export const PRODUCTS = [
     {
         id: 1,
@@ -62,7 +152,7 @@ export const GROUP_BUSINESSES = [
         tagline: "Spesialis Facade & Kusen",
         description: "Kontraktor spesialis aluminium finish goods dan curtain wall untuk gedung dan hunian mewah.",
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
-        link: "/", // Links to the main homepage we built
+        link: "/kaca-aluminium", // Links to the Kaca homepage
         status: "Active"
     },
     {
@@ -71,8 +161,8 @@ export const GROUP_BUSINESSES = [
         tagline: "Supply Rangka Atap",
         description: "Distributor kaca lembaran, tempered, dan laminated. Supply toko kaca dan proyek.",
         image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", // Glass factory vibe
-        link: "#",
-        status: "Coming Soon"
+        link: "/baja-ringan",
+        status: "Active"
     },
     {
         id: "keramik",

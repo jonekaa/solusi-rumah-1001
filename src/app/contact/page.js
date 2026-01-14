@@ -1,23 +1,55 @@
-import React from 'react';
+'use client';
+
+import React, { Suspense } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
 
-export const metadata = {
-    title: "Hubungi Kami",
-    description: "Workshop Aluminium dan Kaca di Surabaya. Siap kirim ke Kalimantan & Sulawesi.",
-};
+function ContactContent() {
+    const searchParams = useSearchParams();
+    const source = searchParams.get('source');
 
-export default function Contact() {
+    // Dynamic Navbar config based on source
+    const getNavbarConfig = () => {
+        if (source === 'baja-ringan') {
+            return {
+                brandName: "GALVALUM & BAJA RINGAN",
+                navItems: [
+                    { label: 'Proyek', href: '/baja-ringan#proyek' },
+                    { label: 'Material', href: '/baja-ringan#produk' },
+                    { label: 'Kontraktor', href: '/baja-ringan#kontraktor' }
+                ],
+                showContact: false // Already on contact page
+            };
+        }
+        // Default to Kaca & Aluminium
+        return {
+            brandName: "KACA & ALUMINIUM",
+            navItems: [
+                { label: 'Produk', href: '/kaca-aluminium#produk' },
+                { label: 'Estimasi', href: '/kaca-aluminium#estimasi' },
+                { label: 'Kontraktor', href: '/kaca-aluminium#kontraktor' }
+            ],
+            showContact: false
+        };
+    };
+
+    const navConfig = getNavbarConfig();
+
     return (
         <main className="min-h-screen flex flex-col bg-stone-50">
-            <Navbar />
+            <Navbar
+                brandName={navConfig.brandName}
+                navItems={navConfig.navItems}
+                showContact={navConfig.showContact}
+            />
 
             {/* Simple Header */}
             <div className="bg-stone-900 pt-32 pb-16 text-center px-4">
                 <h1 className="text-4xl font-bold text-white mb-4">Hubungi Kami</h1>
                 <p className="text-stone-400 max-w-4xl mx-auto">
-                    Konsultasikan kebutuhan kaca dan aluminium Anda kepada kami.
+                    Konsultasikan kebutuhan {source === 'baja-ringan' ? 'baja ringan dan atap' : 'kaca dan aluminium'} Anda kepada kami.
                 </p>
             </div>
 
@@ -47,7 +79,7 @@ export default function Contact() {
                                     <Phone size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-stone-600 text-md font-semibold">+62 812-3456-7890</p>
+                                    <p className="text-stone-600 text-md font-semibold">+62 877-7828-0390</p>
                                     <p className="text-xs text-stone-500">Respons Cepat: 08.00 - 17.00 WIB</p>
                                 </div>
                             </div>
@@ -57,7 +89,7 @@ export default function Contact() {
                                     <Mail size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-stone-600 inline-middle">proyek@aluminium99.com</p>
+                                    <p className="text-stone-600 inline-middle">admin@solusirumah1001.com</p>
                                 </div>
                             </div>
 
@@ -66,8 +98,8 @@ export default function Contact() {
                                     <Clock size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-stone-600">Senin - Jumat: 08.00 - 17.00</p>
-                                    <p className="text-stone-600">Sabtu: 08.00 - 14.00</p>
+                                    <p className="text-stone-600">Senin - Sabtu: 08.00 - 17.00</p>
+                                    {/* <p className="text-stone-600">Sabtu: 08.00 - 14.00</p> */}
                                 </div>
                             </div>
                         </div>
@@ -122,5 +154,13 @@ export default function Contact() {
 
             <Footer />
         </main>
+    );
+}
+
+export default function Contact() {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <ContactContent />
+        </Suspense>
     );
 }

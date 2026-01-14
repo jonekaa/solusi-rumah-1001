@@ -7,21 +7,25 @@ import SectionTitle from '@/components/ui/SectionTitle';
 import ProductModal from '@/components/ui/ProductModal';
 import { PRODUCTS } from '@/data';
 
-const Products = () => {
+const Products = ({ 
+  title = "Katalog Spesialis", 
+  subtitle = "Klik produk untuk melihat detail spesifikasi teknis, merek, dan garansi.",
+  items = PRODUCTS 
+}) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
 
   return (
     <section id="produk" className="py-24 bg-white">
       <div className="container mx-auto px-4">
         <SectionTitle 
-          title="Katalog Spesialis" 
-          subtitle="Klik produk untuk melihat detail spesifikasi teknis, merek, dan garansi."
+          title={title} 
+          subtitle={subtitle}
           centered 
         />
         
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PRODUCTS.map(product => (
+          {items.map(product => (
             <div 
               key={product.id} 
               onClick={() => setSelectedProduct(product)}
