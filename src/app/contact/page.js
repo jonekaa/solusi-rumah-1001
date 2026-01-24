@@ -101,14 +101,21 @@ function ContactContent() {
                                 </div>
                                 <div>
                                     <p className="text-stone-600 leading-relaxed">
-                                        Jl. Raya Rungkut Industri No. 99<br />
-                                        Kawasan Industri SIER<br />
-                                        Surabaya, Jawa Timur 60293
+                                        <a
+                                            href="https://maps.app.goo.gl/EZTTykcrPDtsMUB46"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="text-amber-800 hover:text-amber-500 transition-colors"
+                                        >
+                                            Raya, Jl. Joyo Agung atas, Kota Malang, Jawa Timur
+                                        </a>
+                                        <br />
+                                        Malang | Surabaya
                                     </p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="bg-stone-100 p-3 rounded-full text-amber-600">
                                     <Phone size={18} />
                                 </div>
@@ -118,16 +125,16 @@ function ContactContent() {
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="bg-stone-100 p-3 rounded-full text-amber-600">
                                     <Mail size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-stone-600 inline-middle">admin@solusirumah1001.com</p>
+                                    <p className="text-stone-600">jonathansaputra03@gmail.com</p>
                                 </div>
                             </div>
 
-                            <div className="flex items-start gap-4">
+                            <div className="flex items-center gap-4">
                                 <div className="bg-stone-100 p-3 rounded-full text-amber-600">
                                     <Clock size={18} />
                                 </div>
@@ -141,7 +148,7 @@ function ContactContent() {
                         {/* Google Map Embed */}
                         <div className="rounded-2xl overflow-hidden shadow-lg border border-stone-200 h-80 relative bg-stone-200">
                             <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3957.374057688777!2d112.7658!3d-7.3117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd7fae1a7b9e3d1%3A0x863725442562407e!2sSIER%20Industrial%20Estate!5e0!3m2!1sen!2sid!4v1700000000000!5m2!1sen!2sid"
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3951.594695455301!2d112.58017849999999!3d-7.937328200000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e788339e488c491%3A0x3ad222face59585c!2s99%20alumunium%20kaca%20tempered!5e0!3m2!1sid!2sid!4v1769234812160!5m2!1sid!2sid"
                                 width="100%"
                                 height="100%"
                                 style={{ border: 0 }}
@@ -228,7 +235,10 @@ function ContactContent() {
                 </div>
             </div>
 
-            <Footer />
+            <Footer
+                brandName={navConfig.brandName}
+                brandHref={navConfig.brandHref}
+            />
         </main>
     );
 }

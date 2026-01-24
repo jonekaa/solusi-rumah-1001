@@ -29,7 +29,7 @@ export default function KacaPage() {
 
             <Contractor />
 
-            <Footer />
+            <Footer brandHref="/kaca-aluminium" />
         </main>
     );
 }

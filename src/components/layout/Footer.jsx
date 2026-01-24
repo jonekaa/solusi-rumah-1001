@@ -5,7 +5,11 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { GROUP_BUSINESSES } from '@/data';
 
-const Footer = () => {
+const Footer = ({
+    brandName = "KACA & ALUMINIUM",
+    brandHighlight = "1001",
+    brandHref = "/"
+}) => {
     const pathname = usePathname();
 
   return (
@@ -14,9 +18,20 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-1">
-            <h2 className="text-2xl font-bold text-white mb-4">KACA & ALUMINIUM <span className="text-amber-600">1001</span></h2>
-            <p className="text-sm mb-6">Bagian dari 101 Group. Spesialis material konstruksi modern dengan jangkauan seluruh Indonesia.</p>
-            <p className="text-xs text-stone-500">Jl. Industri No. 45, Surabaya, Jawa Timur</p>
+            <Link href={brandHref} className="inline-block group">
+              <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors uppercase">
+                {brandName} <span className="text-amber-600">{brandHighlight}</span>
+              </h2>
+            </Link>
+            <p className="text-sm mb-6">Bagian dari 1001 Group. Spesialis Facade High-Rise & Rumah Mewah.</p>
+            <a 
+              href="https://maps.app.goo.gl/EZTTykcrPDtsMUB46" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-xs text-stone-500 hover:text-amber-500 transition-colors"
+            >
+              Raya, Jl. Joyo Agung atas, Kota Malang, Jawa Timur
+            </a>
           </div>
           
           {/* Product Links */}

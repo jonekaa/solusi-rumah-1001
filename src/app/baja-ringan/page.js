@@ -74,7 +74,10 @@ export default function BajaRinganPage() {
                 ]}
             />
 
-            <Footer />
+            <Footer
+                brandName="GALVALUM & BAJA RINGAN"
+                brandHref="/baja-ringan"
+            />
         </main>
     );
 }
