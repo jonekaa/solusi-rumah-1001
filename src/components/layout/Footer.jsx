@@ -63,7 +63,7 @@ const Footer = () => {
         </div>
         
         <div className="pt-8 border-t border-stone-900 text-center text-xs flex flex-col md:flex-row justify-between items-center">
-          <p>&copy; {new Date().getFullYear()} Aluminium dan Kaca 1001. All rights reserved.</p>
+          <p suppressHydrationWarning>&copy; 2026 Aluminium dan Kaca 1001. All rights reserved.</p>
           <p className="mt-2 md:mt-0">Designed for High Performance</p>
         </div>
       </div>

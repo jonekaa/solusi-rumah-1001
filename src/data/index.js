@@ -104,25 +104,25 @@ export const PRODUCTS = [
         image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         isBestSeller: true,
         specs: {
-            brands: ["YKK AP", "Alexindo", "Dacon"],
-            glass: ["Stopsol 8mm", "Tempered 10mm/12mm", "Laminated 5+5"],
-            finish: ["Anodized (CA/Black/Dark Brown)", "Powder Coating (Custom RAL)"],
-            warranty: "10 Tahun Kebocoran & Warna"
+            brands: ["YKK AP", "Alexindo"],
+            aluminum: ["YKK (CA, Anodize, PC)", "Alexindo", "Finished Good System"],
+            kaca: ["Asahimas", "Muliaglass"],
+            warranty: "Kerapian dan kebocoran selama masa pemeliharaan"
         },
         usage: "Gedung Bertingkat, Showroom Mobil, Lobby Hotel"
     },
     {
         id: 2,
         title: "Railing Kaca Tempered",
-        category: "Residential",
+        category: "Commercial",
         shortDesc: "Pandangan tanpa batas untuk balkon villa dan void tangga.",
-        image: "https://images.unsplash.com/photo-1621202507461-1dc6f1806e04?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        image: "https://images.unsplash.com/photo-1707301452501-224763485ac3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         isBestSeller: false,
         specs: {
-            brands: ["Aksesoris Stainless SUS 304"],
-            glass: ["Tempered 10mm", "Tempered 12mm", "Tempered Laminated 8+8"],
-            finish: ["Handrail Kayu Bengkirai/Jati", "Handrail Stainless Hairline"],
-            warranty: "Garansi Stainless Anti-Karat 3 Tahun"
+            brands: ["Kaki Stainless", "Glass Support", "Tanam Beton"],
+            glass: ["Tempered 10mm", "Tempered 12mm", "Tempered Laminated 10+10"],
+            finish: ["Handrail Kayu", "Handrail Stainless"],
+            warranty: "Kerapian dan presisi dalam pemasangan"
         },
         usage: "Balkon Villa, Void Mall, Tangga Rumah Mewah"
     },
@@ -134,12 +134,27 @@ export const PRODUCTS = [
         image: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         isBestSeller: true,
         specs: {
-            brands: ["YKK Nexsta", "Alexindo 4 Inch", "Inkalum"],
-            glass: ["Polos 5mm", "Rayban 5mm", "Tempered 6mm"],
+            brands: ["YKK Nexsta", "Alexindo 4 Inch"],
+            glass: ["Kaca Polos (5, 6, 8 mm)", "Kaca Warna Grey, Green, Blue (5, 6, 8 mm)", "Kaca Tempered (5, 6, 8 mm)"],
             finish: ["Urat Kayu (Wood Grain)", "Putih/Hitam Powder Coat"],
-            warranty: "Garansi Profil 5 Tahun"
+            warranty: "Garansi Kerapian dan Kesesuaian bahan yang dipakai sesuai dengan kesepakatan dan kontrak"
         },
         usage: "Pintu Utama, Jendela Kamar, Partisi Kantor"
+    },
+    {
+        id: 4,
+        title: "Kanopi Kaca",
+        category: "Residential",
+        shortDesc: "Kanopi kaca dengan finishing cat hitam doff.",
+        image: "https://images.unsplash.com/photo-1600421857374-6afb9d5c8615?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+        isBestSeller: false,
+        specs: {
+            brands: ["Kencana Truss", "Taso"],
+            material: ["Galvalum AZ100"],
+            thickness: ["0.45mm"],
+            warranty: "Standar SNI"
+        },
+        usage: "Dudukan Genteng Metal/Keramik"
     }
 ];
 
@@ -161,8 +176,8 @@ export const GROUP_BUSINESSES = [
         tagline: "Supply Rangka Atap",
         description: "Distributor kaca lembaran, tempered, dan laminated. Supply toko kaca dan proyek.",
         image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", // Glass factory vibe
-        link: "/baja-ringan",
-        status: "Active"
+        link: "#",
+        status: "Coming Soon"
     },
     {
         id: "keramik",

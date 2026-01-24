@@ -28,13 +28,13 @@ export default function GroupLanding() {
             src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
             alt="Architecture Abstract"
             fill
-            className="object-cover opacity-80"
+            className="object-cover opacity-100"
             priority
           />
-          <div className="absolute inset-0 bg-linear-to-b from-stone-50/0 via-stone-50/50 to-stone-50"></div>
+          <div className="absolute inset-0 bg-linear-to-b from-stone-50/10 via-stone-50/30 to-stone-50"></div>
         </div>
 
-        <div className="relative z-10 text-center max-w-4xl px-4 mt-16 md:mt-0">
+        <div className="relative z-10 text-center max-w-4xl px-4 mt-24 md:mt-32">
           <span className="inline-block py-2 px-6 rounded-full border border-stone-950 bg-white/40 backdrop-blur-md text-stone-600 text-sm font-bold tracking-[0.2em] uppercase mb-8 shadow-xl">
             Build Your Dream
           </span>
@@ -137,7 +137,7 @@ export default function GroupLanding() {
 
       {/* Simple Footer */}
       <footer className="py-12 text-center text-stone-500 text-sm border-t border-stone-200 bg-stone-100">
-        <p>&copy; {new Date().getFullYear()} 1001 Solusi Rumah Group. All Rights Reserved.</p>
+        <p suppressHydrationWarning>&copy; 2026 1001 Solusi Rumah Group. All Rights Reserved.</p>
         <p className="mt-2">Surabaya - Malang</p>
       </footer>
 

@@ -11,6 +11,7 @@ export default function KacaPage() {
     return (
         <main className="min-h-screen flex flex-col">
             <Navbar
+                brandHref="/kaca-aluminium"
                 navItems={[
                     { label: 'Produk', href: '#produk' },
                     { label: 'Estimasi', href: '#estimasi' },
@@ -24,7 +25,7 @@ export default function KacaPage() {
 
             <Products />
 
-            <EstimatorSection />
+            {/* <EstimatorSection /> */}
 
             <Contractor />
 

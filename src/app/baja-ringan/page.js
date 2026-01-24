@@ -17,6 +17,7 @@ export default function BajaRinganPage() {
         <main className="min-h-screen flex flex-col bg-white text-stone-900">
             <Navbar
                 brandName="GALVALUM & BAJA RINGAN"
+                brandHref="/baja-ringan"
                 navItems={[
                     { label: 'Proyek', href: '#proyek' },
                     { label: 'Material', href: '#produk' },

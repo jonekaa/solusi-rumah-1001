@@ -8,13 +8,15 @@ import { GROUP_BUSINESSES } from '@/data';
 const Navbar = ({
   brandName = "KACA & ALUMINIUM",
   brandHighlight = "1001",
+  brandHref = "/",
   navItems = [
     { label: 'Produk', href: '#produk' },
     { label: 'Estimasi', href: '#estimasi' },
     { label: 'Kontraktor', href: '#kontraktor' }
   ],
   showContact = true,
-  contactHref = "/contact"
+  contactHref = "/contact",
+  isDark = false
 }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -28,21 +30,21 @@ const Navbar = ({
   }, []);
 
   return (
-    <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6'}`}>
+    <nav className={`fixed w-full z-50 transition-all duration-300 ${isDark ? 'bg-stone-900 shadow-lg py-4' : (isScrolled ? 'bg-white/95 backdrop-blur-md shadow-md py-3' : 'bg-transparent py-6')}`}>
       <div className="container mx-auto px-4 md:px-8 flex justify-between items-center">
 
         {/* Brand - Link to Home (or Group Home if desired, but usually root) */}
-        <Link href="/" className="flex flex-col cursor-pointer group">
-          <h1 className={`text-2xl font-bold tracking-tight flex items-center gap-2 ${isScrolled ? 'text-stone-900' : 'text-stone-900 md:text-white'}`}>
-            {brandName} <span className="text-amber-600">{brandHighlight}</span>
+        <Link href={brandHref} className="flex flex-col cursor-pointer group">
+          <h1 className={`text-2xl font-extrabold tracking-tight flex items-center gap-2 ${isDark ? 'text-white' : 'text-stone-900'}`}>
+            {brandName} <span className="text-amber-600 font-bold">{brandHighlight}</span>
           </h1>
-          <p className={`text-[10px] tracking-[0.2em] uppercase ${isScrolled ? 'text-stone-500' : 'text-stone-400 md:text-stone-300'}`}>
+          <p className={`text-[10px] font-bold tracking-[0.2em] uppercase ${isDark ? 'text-stone-400' : (isScrolled ? 'text-stone-700' : 'text-stone-900')}`}>
             Member of 1001 Solusi Rumah Group
           </p>
         </Link>
 
         {/* Desktop Menu */}
-        <div className={`hidden md:flex items-center space-x-8 font-medium ${isScrolled ? 'text-stone-700' : 'text-white'}`}>
+        <div className={`hidden md:flex items-center space-x-8 font-medium ${isDark ? 'text-white' : (isScrolled ? 'text-stone-700' : 'text-stone-800')}`}>
           {/* Local Page Links */}
           {navItems.map((item) => (
             <Link 
@@ -58,7 +60,7 @@ const Navbar = ({
           <div className="relative group/dropdown">
             <Link 
               href="/"
-              className="hover:text-amber-500 transition-colors text-sm uppercase tracking-wide font-bold border-l border-stone-400/50 pl-6 flex items-center gap-1"
+              className={`hover:text-amber-500 transition-colors text-sm uppercase tracking-wide font-bold pl-6 flex items-center gap-1 border-l ${isDark ? 'border-stone-700' : 'border-stone-400/50'}`}
             >
               1001 Group
             </Link>
@@ -85,7 +87,7 @@ const Navbar = ({
         {showContact && (
           <Link
             href={contactHref}
-            className="hidden md:flex bg-brand-primary hover:bg-amber-700 text-amber-300 px-5 py-2 rounded-lg font-bold text-sm transition-all shadow-lg shadow-amber-600/30 items-center gap-2"
+            className="hidden md:flex bg-amber-600 hover:bg-amber-700 text-white px-6 py-2.5 rounded-full font-bold text-sm transition-all shadow-lg shadow-amber-900/20 items-center gap-2 hover:scale-105"
           >
             <Phone size={16} />
             Kontak
@@ -93,7 +95,7 @@ const Navbar = ({
         )}
 
         {/* Mobile Toggle */}
-        <button className="md:hidden text-amber-600" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        <button className="text-amber-600 md:hidden" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
           {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>

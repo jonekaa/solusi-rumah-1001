@@ -34,7 +34,7 @@ const Estimator = () => {
   const generateWhatsappLink = () => {
     if (!result) return "#";
     const text = `Halo Aluminium 99, saya ingin konsultasi estimasi untuk ${type === 'window' ? 'Jendela' : type === 'door' ? 'Pintu' : 'Facade'} ukuran ${width}m x ${height}m sebanyak ${qty} unit. Estimasi web sekitar ${formatIDR(result.low)}.`;
-    return `https://wa.me/6281234567890?text=${encodeURIComponent(text)}`;
+    return `https://wa.me/6287775080483?text=${encodeURIComponent(text)}`;
   };
 
   return (

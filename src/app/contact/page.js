@@ -9,12 +9,26 @@ import { useSearchParams } from 'next/navigation';
 function ContactContent() {
     const searchParams = useSearchParams();
     const source = searchParams.get('source');
+    const product = searchParams.get('product') || (source === 'baja-ringan' ? 'Baja Ringan' : 'Kaca & Aluminium');
+
+    const [formData, setFormData] = React.useState({
+        nama: '',
+        telepon: '',
+        lokasi: '',
+        pesan: ''
+    });
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
 
     // Dynamic Navbar config based on source
     const getNavbarConfig = () => {
         if (source === 'baja-ringan') {
             return {
                 brandName: "GALVALUM & BAJA RINGAN",
+                brandHref: "/baja-ringan",
                 navItems: [
                     { label: 'Proyek', href: '/baja-ringan#proyek' },
                     { label: 'Material', href: '/baja-ringan#produk' },
@@ -26,6 +40,7 @@ function ContactContent() {
         // Default to Kaca & Aluminium
         return {
             brandName: "KACA & ALUMINIUM",
+            brandHref: "/kaca-aluminium",
             navItems: [
                 { label: 'Produk', href: '/kaca-aluminium#produk' },
                 { label: 'Estimasi', href: '/kaca-aluminium#estimasi' },
@@ -37,12 +52,31 @@ function ContactContent() {
 
     const navConfig = getNavbarConfig();
 
+    const handleWhatsApp = () => {
+        const text = `Halo Solusi Rumah,\n\nSaya ingin bertanya mengenai ${product} nya.\n\nNama: ${formData.nama}\nLokasi: ${formData.lokasi}\nTelepon/WA: ${formData.telepon}\n\nPesan: ${formData.pesan}`;
+        const url = `https://wa.me/6287775080483?text=${encodeURIComponent(text)}`;
+        window.open(url, '_blank');
+    };
+
+    const handleEmail = () => {
+        const subject = `Solusi Rumah - Tanya ${product} ${formData.lokasi} ${formData.telepon}`;
+        const body = `Halo,\n\nSaya mendapatkan informasi dari website.\n\nNama: ${formData.nama}\nLokasi: ${formData.lokasi}\nTelepon/WA: ${formData.telepon}\n\n${formData.pesan}`;
+
+        // Gmail-specific compose URL
+        const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=jonathansaputra03@gmail.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Fallback or secondary attempt to use mailto if user prefers default app
+        window.open(gmailUrl, '_blank');
+    };
+
     return (
         <main className="min-h-screen flex flex-col bg-stone-50">
             <Navbar
                 brandName={navConfig.brandName}
+                brandHref={navConfig.brandHref}
                 navItems={navConfig.navItems}
                 showContact={navConfig.showContact}
+                isDark={true}
             />
 
             {/* Simple Header */}
@@ -79,7 +113,7 @@ function ContactContent() {
                                     <Phone size={18} />
                                 </div>
                                 <div>
-                                    <p className="text-stone-600 text-md font-semibold">+62 877-7828-0390</p>
+                                    <p className="text-stone-600 text-md font-semibold">+62 877-7508-0483</p>
                                     <p className="text-xs text-stone-500">Respons Cepat: 08.00 - 17.00 WIB</p>
                                 </div>
                             </div>
@@ -125,27 +159,69 @@ function ContactContent() {
                             <div className="grid grid-cols-2 gap-6 mb-6">
                                 <div>
                                     <label className="block text-sm font-bold text-stone-500 mb-2">Nama</label>
-                                    <input type="text" className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500" placeholder="Nama Anda" />
+                                    <input
+                                        type="text"
+                                        name="nama"
+                                        value={formData.nama}
+                                        onChange={handleChange}
+                                        className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500"
+                                        placeholder="Nama Anda"
+                                    />
                                 </div>
                                 <div>
                                     <label className="block text-sm font-bold text-stone-500 mb-2">Telepon / WA</label>
-                                    <input type="text" className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500" placeholder="081..." />
+                                    <input
+                                        type="text"
+                                        name="telepon"
+                                        value={formData.telepon}
+                                        onChange={handleChange}
+                                        className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500"
+                                        placeholder="081..."
+                                    />
                                 </div>
                             </div>
 
                             <div className="mb-6">
                                 <label className="block text-sm font-bold text-stone-500 mb-2">Lokasi Proyek</label>
-                                <input type="text" className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500" placeholder="Contoh: Balikpapan, Kalimantan Timur" />
+                                <input
+                                    type="text"
+                                    name="lokasi"
+                                    value={formData.lokasi}
+                                    onChange={handleChange}
+                                    className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 focus:outline-none focus:border-amber-500"
+                                    placeholder="Contoh: Balikpapan, Kalimantan Timur"
+                                />
                             </div>
 
                             <div className="mb-6">
                                 <label className="block text-sm font-bold text-stone-500 mb-2">Pesan / Kebutuhan</label>
-                                <textarea className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 h-32 focus:outline-none focus:border-amber-500" placeholder="Saya butuh penawaran untuk..."></textarea>
+                                <textarea
+                                    name="pesan"
+                                    value={formData.pesan}
+                                    onChange={handleChange}
+                                    className="w-full bg-stone-50 border border-stone-200 rounded-lg p-3 h-32 focus:outline-none focus:border-amber-500"
+                                    placeholder="Saya butuh penawaran untuk..."
+                                ></textarea>
                             </div>
 
-                            <button type="button" className="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold py-4 rounded-lg transition-colors">
-                                Kirim Pesan
-                            </button>
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <button
+                                    type="button"
+                                    onClick={handleWhatsApp}
+                                    className="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                >
+                                    <Phone size={20} />
+                                    WhatsApp
+                                </button>
+                                <button
+                                    type="button"
+                                    onClick={handleEmail}
+                                    className="w-full bg-stone-900 hover:bg-stone-800 text-white font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                                >
+                                    <Mail size={20} />
+                                    Email
+                                </button>
+                            </div>
                         </form>
                     </div>
 

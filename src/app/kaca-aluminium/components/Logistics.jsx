@@ -12,9 +12,9 @@ const Logistics = () => {
             <div className="bg-stone-900 inline-flex p-4 rounded-xl text-amber-500 mb-4 shadow-inner group-hover:scale-110 transition-transform">
               <ShieldCheck size={32} />
             </div>
-            <h3 className="text-xl font-bold text-white mb-2">Garansi Kaca Pecah</h3>
+            <h3 className="text-xl font-bold text-white mb-2">Garansi Pekerjaan yang Berkualitas</h3>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Kami menanggung risiko pengiriman. Jika kaca pecah di perjalanan karena kesalahan packing, kami ganti baru.
+              Kami memberikan garansi pekerjaan yang berkualitas yang sesuai dengan standar kami selama dalam masa pemeliharaan.
             </p>
           </div>
 
@@ -25,7 +25,7 @@ const Logistics = () => {
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Brand Resmi</h3>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Menggunakan profil asli YKK AP & Alexindo dengan ketebalan sesuai standar struktur (bukan banci).
+              Menggunakan merk dan profil yang sesuai dengan penawaran dan kesepakatan.
             </p>
           </div>
 
@@ -36,7 +36,7 @@ const Logistics = () => {
             </div>
             <h3 className="text-xl font-bold text-white mb-2">Jangkauan Luas</h3>
             <p className="text-stone-400 text-sm leading-relaxed">
-              Berpengalaman kirim dan pasang di Balikpapan, Makassar, Medan, hingga Sorong.
+              Berpengalaman dalam supply dan install hingga keluar pulau (Kalimantan, Sulawesi, Bali, Lombok, Kupang, Papua)
             </p>
           </div>
 

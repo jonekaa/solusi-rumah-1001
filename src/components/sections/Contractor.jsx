@@ -49,7 +49,7 @@ const Contractor = ({
         {/* Call to Action for Contractors */}
         <div className="mt-12">
             <a 
-                href="https://wa.me/6281234567890?text=Halo%20saya%20Kontraktor%20ingin%20kerjasama"
+                href="https://wa.me/6287775080483?text=Halo%20saya%20Kontraktor%20ingin%20kerjasama"
                 target="_blank"
                 className="inline-block bg-white text-stone-900 hover:bg-stone-200 font-bold py-4 px-8 rounded-lg transition-colors"
             >

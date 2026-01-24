@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import { XCircle, Hammer, ShieldCheck, Ruler, Phone, FileText } from 'lucide-react';
+import { XCircle, Hammer, ShieldCheck, Ruler, Phone, FileText, BrickWall, InspectionPanel} from 'lucide-react';
 
 const ProductModal = ({ product, onClose }) => {
   // Close on Escape key
@@ -45,7 +45,7 @@ const ProductModal = ({ product, onClose }) => {
               <span className="text-amber-600 font-bold text-xs uppercase tracking-widest">{product.category}</span>
               <h3 className="text-3xl font-bold text-stone-900 mt-1 hidden md:block">{product.title}</h3>
             </div>
-            <button onClick={onClose} className="p-2 hover:bg-stone-100 rounded-full transition-colors">
+            <button onClick={onClose} className="p-2 hover:bg-stone -100 rounded-full transition-colors">
               <XCircle size={28} className="text-stone-400 hover:text-stone-800" />
             </button>
           </div>
@@ -54,7 +54,7 @@ const ProductModal = ({ product, onClose }) => {
 
           <div className="mb-4">
             <div>
-              <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2"><Hammer size={18} className="text-amber-500"/> Brand Support</h4>
+              <h4 className="font-bold text-stone-800 mb-2 flex items-center gap-2"><Hammer size={18} className="text-amber-500"/> Supports</h4>
               <div className="flex flex-wrap gap-2 mb-4">
                 {product.specs.brands.map(b => (
                   <span key={b} className="bg-stone-100 text-stone-600 px-3 py-1 rounded text-sm font-medium border border-stone-200">{b}</span>
@@ -72,6 +72,8 @@ const ProductModal = ({ product, onClose }) => {
                 switch(key) {
                     case 'glass': label = 'Spesifikasi Kaca'; break;
                     case 'material': label = 'Material Dasar'; break;
+                    case 'aluminum': label = 'Spesifikasi Aluminium'; icon = <BrickWall size={18} className="text-amber-500"/>; break;
+                    case 'kaca': label = 'Spesifikasi Kaca'; icon = <InspectionPanel size={18} className="text-amber-500"/>; break;
                     case 'thickness': label = 'Ketebalan'; icon = <Ruler size={18} className="text-amber-500"/>; break;
                     case 'finish': label = 'Finishing & Warna'; icon = <Ruler size={18} className="text-amber-500"/>; break;
                     case 'colors': label = 'Pilihan Warna'; icon = <Ruler size={18} className="text-amber-500"/>; break;
@@ -98,7 +100,7 @@ const ProductModal = ({ product, onClose }) => {
 
           <div className="mt-auto pt-6 border-t border-stone-100 flex gap-4">
             <a 
-              href="https://wa.me/6281234567890" 
+              href={`https://wa.me/6287775080483?text=${encodeURIComponent(`Halo, Saya ingin bertanya mengenai ${product.title} nya.`)}`} 
               target="_blank"
               className="flex-1 bg-amber-500 hover:bg-amber-700 text-stone-800 hover:text-white py-3 rounded-lg font-bold flex items-center justify-center gap-2 transition-colors shadow-lg hover:shadow-amber-600/30"
             >
