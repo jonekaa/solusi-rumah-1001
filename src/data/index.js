@@ -145,13 +145,13 @@ export const PRODUCTS = [
         id: 4,
         title: "Kanopi Kaca",
         category: "Residential",
-        shortDesc: "Kanopi kaca dengan finishing cat hitam doff.",
+        shortDesc: "Kanopi kaca dengan rangka kuat.",
         image: "https://images.unsplash.com/photo-1600421857374-6afb9d5c8615?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         isBestSeller: false,
         specs: {
-            brands: ["Kencana Truss", "Taso"],
-            material: ["Galvalum AZ100"],
-            thickness: ["0.45mm"],
+            brands: ["Besi Baja", "Hollo"],
+            material: ["Galvanis"],
+            thickness: ["1.2 - 1.4 mm"],
             warranty: "Standar SNI"
         },
         usage: "Dudukan Genteng Metal/Keramik"
