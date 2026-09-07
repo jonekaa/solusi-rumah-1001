@@ -21,7 +21,8 @@ export default function BajaRinganPage() {
                 navItems={[
                     { label: 'Proyek', href: '#proyek' },
                     { label: 'Material', href: '#produk' },
-                    { label: 'Kontraktor', href: '#kontraktor' }
+                    { label: 'Kontraktor', href: '#kontraktor' },
+                    { label: 'Tentang Kami', href: '/baja-ringan/tentang-kami' }
                 ]}
                 contactHref="/contact?source=baja-ringan"
             />

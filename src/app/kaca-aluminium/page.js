@@ -14,8 +14,9 @@ export default function KacaPage() {
                 brandHref="/kaca-aluminium"
                 navItems={[
                     { label: 'Produk', href: '#produk' },
-                    { label: 'Estimasi', href: '#estimasi' },
-                    { label: 'Kontraktor', href: '#kontraktor' }
+                    // { label: 'Estimasi', href: '#estimasi' },
+                    { label: 'Kontraktor', href: '#kontraktor' },
+                    { label: 'Tentang Kami', href: '/kaca-aluminium/tentang-kami' }
                 ]}
             />
 

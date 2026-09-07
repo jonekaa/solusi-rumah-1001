@@ -26,6 +26,7 @@ export default function GroupLanding() {
         <div className="absolute inset-0 z-0">
           <Image
             src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+            // src="/backgrounds/blueprint.png"
             alt="Architecture Abstract"
             fill
             className="object-cover opacity-100"
@@ -52,48 +53,64 @@ export default function GroupLanding() {
       <section className="py-20 px-4 md:px-12 -mt-20 relative z-20">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {GROUP_BUSINESSES.map((biz) => (
-              <Link
-                href={biz.link}
-                key={biz.id}
-                className={`group relative h-[320px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${biz.status !== 'Active' ? 'cursor-default grayscale opacity-80 hover:grayscale-0 hover:opacity-100' : 'cursor-pointer'}`}
-              >
-                {/* Image Background */}
-                <Image
-                  src={biz.image}
-                  alt={biz.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105 opacity-40 group-hover:opacity-60"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
+            {GROUP_BUSINESSES.map((biz) => {
+              const isActive = biz.status === 'Active';
+              const cardContent = (
+                <>
+                  {/* Image Background */}
+                  <Image
+                    src={biz.image}
+                    alt={biz.name}
+                    fill
+                    className={`object-cover transition-transform duration-700 ${isActive ? 'group-hover:scale-105 opacity-40 group-hover:opacity-60' : 'opacity-30'}`}
+                  />
+                  <div className="absolute inset-0 bg-linear-to-t from-black via-black/50 to-transparent"></div>
 
-                {/* Content */}
-                <div className="absolute bottom-0 left-0 w-full p-8">
-                  <div className="flex justify-between items-end mb-2">
-                    <div>
-                      <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">
-                        {biz.tagline}
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 w-full p-8">
+                    <div className="flex justify-between items-end mb-2">
+                      <div>
+                        <div className="text-amber-500 text-xs font-bold uppercase tracking-widest mb-2">
+                          {biz.tagline}
+                        </div>
+                        <h3 className={`text-3xl font-bold text-white mb-2 ${isActive ? 'group-hover:text-amber-400 transition-colors' : ''}`}>
+                          {biz.name}
+                        </h3>
                       </div>
-                      <h3 className="text-3xl font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                        {biz.name}
-                      </h3>
+                      {isActive ? (
+                        <div className="bg-white text-black p-3 rounded-full transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
+                          <ArrowRight size={20} />
+                        </div>
+                      ) : (
+                        <span className="text-xs text-stone-500 border border-stone-700 px-2 py-1 rounded bg-black/50">
+                          {biz.status}
+                        </span>
+                      )}
                     </div>
-                    {biz.status === 'Active' ? (
-                      <div className="bg-white text-black p-3 rounded-full transform translate-x-4 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
-                        <ArrowRight size={20} />
-                      </div>
-                    ) : (
-                      <span className="text-xs text-stone-500 border border-stone-700 px-2 py-1 rounded bg-black/50">
-                        {biz.status}
-                      </span>
-                    )}
+                    <p className={`text-stone-400 text-sm line-clamp-2 ${isActive ? 'group-hover:text-stone-300 transition-colors' : ''}`}>
+                      {biz.description}
+                    </p>
                   </div>
-                  <p className="text-stone-400 text-sm line-clamp-2 group-hover:text-stone-300 transition-colors">
-                    {biz.description}
-                  </p>
+                </>
+              );
+
+              return isActive ? (
+                <Link
+                  href={biz.link}
+                  key={biz.id}
+                  className="group relative h-[320px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
+                >
+                  {cardContent}
+                </Link>
+              ) : (
+                <div
+                  key={biz.id}
+                  className="group relative h-[320px] rounded-3xl overflow-hidden shadow-lg transition-all duration-500 cursor-default grayscale opacity-75"
+                >
+                  {cardContent}
                 </div>
-              </Link>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
