@@ -13,17 +13,17 @@ const Footer = ({
     const pathname = usePathname();
 
   return (
-    <footer className="bg-stone-950 text-stone-400 py-16 border-t border-stone-900">
+    <footer className="bg-stone-950 text-stone-400 py-6 border-t border-stone-900">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           {/* Brand Column */}
           <div className="col-span-1 md:col-span-1">
             <Link href={brandHref} className="inline-block group">
-              <h2 className="text-2xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors uppercase">
+              <h2 className="text-4xl font-bold text-white mb-4 group-hover:text-amber-500 transition-colors uppercase">
                 {brandName} <span className="text-amber-600">{brandHighlight}</span>
               </h2>
             </Link>
-            <p className="text-sm mb-6">Bagian dari 1001 Group. Spesialis Facade High-Rise & Rumah Mewah.</p>
+            <p className="text-sm mb-2">Bagian dari 1001 Group. Spesialis Facade High-Rise & Rumah Mewah.</p>
             <a 
               href="https://maps.app.goo.gl/EZTTykcrPDtsMUB46" 
               target="_blank" 
@@ -35,7 +35,7 @@ const Footer = ({
           </div>
           
           {/* Product Links */}
-          <div>
+          {/* <div>
             <h4 className="text-white font-bold mb-4 uppercase text-sm tracking-wider">Produk</h4>
             <ul className="space-y-2 text-sm">
               <li><Link href="#" className="hover:text-amber-500">Curtain Wall</Link></li>
@@ -43,7 +43,7 @@ const Footer = ({
               <li><Link href="#" className="hover:text-amber-500">Kusen Aluminium</Link></li>
               <li><Link href="#" className="hover:text-amber-500">Pintu Lipat</Link></li>
             </ul>
-          </div>
+          </div> */}
 
           {/* Support Links */}
           <div>
@@ -62,13 +62,15 @@ const Footer = ({
             <ul className="space-y-2 text-sm">
               {GROUP_BUSINESSES.map(biz => {
                 const isActive = pathname === biz.link;
+                const isAvailable = biz.status === 'Active';
                 return (
                     <li key={biz.name} className="flex items-center justify-between">
                     <Link 
                         href={biz.link}
-                        className={isActive ? "text-amber-500 font-bold" : "text-stone-600 hover:text-stone-400 cursor-pointer block w-full"}
+                        onClick={!isAvailable ? (e) => e.preventDefault() : undefined}
+                        className={isActive ? "text-amber-500 font-bold" : !isAvailable ? "text-stone-600 cursor-default block w-full" : "text-stone-400 hover:text-amber-500 cursor-pointer block w-full"}
                     >
-                        {biz.name}
+                        {biz.name} {!isAvailable && <span className="text-xs text-stone-600">(Coming Soon)</span>}
                     </Link>
                     </li>
                 );

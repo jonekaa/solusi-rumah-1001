@@ -174,8 +174,8 @@ export const GROUP_BUSINESSES = [
         id: "baja-ringan",
         name: "Baja Ringan & Galvalum",
         tagline: "Supply Rangka Atap",
-        description: "Distributor kaca lembaran, tempered, dan laminated. Supply toko kaca dan proyek.",
-        image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80", // Glass factory vibe
+        description: "Distributor rangka atap baja ringan berstandar SNI dan atap galvalum berkualitas untuk proyek residensial dan komersial.",
+        image: "https://images.unsplash.com/photo-1565538810643-b5bdb714032a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
         link: "#",
         status: "Coming Soon"
     },

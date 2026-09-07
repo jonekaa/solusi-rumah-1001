@@ -11,8 +11,8 @@ const Navbar = ({
   brandHref = "/",
   navItems = [
     { label: 'Produk', href: '#produk' },
-    { label: 'Estimasi', href: '#estimasi' },
-    { label: 'Kontraktor', href: '#kontraktor' }
+    { label: 'Kontraktor', href: '#kontraktor' },
+    { label: 'Tentang Kami', href: '#tentang-kami' },
   ],
   showContact = true,
   contactHref = "/contact",
@@ -68,16 +68,25 @@ const Navbar = ({
             {/* Dropdown Menu */}
             <div className="absolute right-0 top-full pt-4 opacity-0 invisible group-hover/dropdown:opacity-100 group-hover/dropdown:visible transition-all duration-300 w-64 transform translate-y-2 group-hover/dropdown:translate-y-0">
                 <div className="bg-white rounded-xl shadow-xl border border-stone-100 overflow-hidden py-2">
-                    {GROUP_BUSINESSES.map((biz) => (
-                        <Link 
-                            key={biz.id}
-                            href={biz.link}
-                            className="block px-6 py-3 hover:bg-amber-50 group/item"
-                        >
-                            <p className="text-stone-800 font-bold text-sm group-hover/item:text-amber-600 transition-colors">{biz.name}</p>
-                            <p className="text-xs text-stone-500 mt-0.5">{biz.tagline}</p>
-                        </Link>
-                    ))}
+                    {GROUP_BUSINESSES.map((biz) => {
+                        const isAvailable = biz.status === 'Active';
+                        return (
+                            <Link 
+                                key={biz.id}
+                                href={biz.link}
+                                onClick={!isAvailable ? (e) => e.preventDefault() : undefined}
+                                className={`block px-6 py-3 transition-colors ${!isAvailable ? 'cursor-default opacity-70 hover:bg-transparent' : 'hover:bg-amber-50 group/item'}`}
+                            >
+                                <div className="flex items-center justify-between">
+                                    <p className={`font-bold text-sm ${isAvailable ? 'text-stone-800 group-hover/item:text-amber-600' : 'text-stone-500'}`}>{biz.name}</p>
+                                    {!isAvailable && (
+                                        <span className="text-[10px] text-stone-400 border border-stone-200 px-1.5 py-0.5 rounded bg-stone-50">Soon</span>
+                                    )}
+                                </div>
+                                <p className="text-xs text-stone-400 mt-0.5">{biz.tagline}</p>
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
           </div>
